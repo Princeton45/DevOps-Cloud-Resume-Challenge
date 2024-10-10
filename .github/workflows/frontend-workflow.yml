@@ -1,0 +1,87 @@
+name: Terraform CI/CD
+
+env:
+  TF_CLOUD_ORGANIZATION: "Cloud-Organization"
+  TF_API_TOKEN: "${{ secrets.TF_API_TOKEN }}"
+  TF_WORKSPACE: "Iman-Renner-AWS-cloud-resume-env"
+
+on:
+  push:
+    branches:
+      - master
+  workflow_dispatch:
+
+jobs:
+  plan:
+    name: 'Terraform Plan'
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Setup Terraform
+      uses: hashicorp/setup-terraform@v1
+      with:
+        cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
+
+    - name: Terraform Format
+      run: terraform fmt -check
+      continue-on-error: true
+
+    - name: Terraform Init
+      run: terraform init
+
+    - name: Terraform Validate
+      run: terraform validate -no-color
+
+    - name: Terraform Plan
+      run: terraform plan -no-color -out=tfplan
+
+    - name: Terraform Show
+      run: terraform show -no-color tfplan > tfplan.txt
+
+    - name: Upload Terraform Plan
+      uses: actions/upload-artifact@v2
+      with:
+        name: tfplan
+        path: tfplan
+
+    - name: Upload Terraform Plan text
+      uses: actions/upload-artifact@v2
+      with:
+        name: tfplan-text
+        path: tfplan.txt
+
+#The above runs Terraform init, format check, validate, and plan on every push and pull request.
+#Saves the Terraform plan as an artifact.
+#Generates a human-readable version of the plan and save it as an artifact.
+
+  apply:
+    name: 'Terraform Apply'
+    needs: plan
+    runs-on: ubuntu-latest
+    environment: production
+    if: github.event_name == 'workflow_dispatch'
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Setup Terraform
+      uses: hashicorp/setup-terraform@v1
+      with:
+        cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
+
+    - name: Terraform Init
+      run: terraform init
+
+    - name: Download Terraform Plan
+      uses: actions/download-artifact@v2
+      with:
+        name: tfplan
+
+    - name: Terraform Apply
+      run: terraform apply -auto-approve tfplan
+
+#The plan job runs on pushes and pull requests.
+#The apply job only runs when manually triggered (workflow_dispatch).
+#The apply job depends on the plan job, ensuring the plan is always run before apply.

@@ -41,13 +41,13 @@ jobs:
       run: terraform show -no-color tfplan > tfplan.txt
 
     - name: Upload Terraform Plan
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with:
         name: tfplan
         path: tfplan
 
     - name: Upload Terraform Plan text
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with:
         name: tfplan-text
         path: tfplan.txt

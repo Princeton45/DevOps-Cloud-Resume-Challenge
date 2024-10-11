@@ -48,9 +48,7 @@ The workflow consists of a single job named 'Terraform' that performs the follow
 
    - If the workspace is not set to "Auto apply", then the run will stop after the plan phase, waiting for manual approval in the Terraform Cloud console before applying.
 
-   ![VCS](images/VCS.png)
-
-   
+   ![VCS](.github/workflows/images/VCS.png)
 
 
 ## Important Notes

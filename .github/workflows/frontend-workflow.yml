@@ -38,6 +38,15 @@ jobs:
       run: terraform plan -no-color
       continue-on-error: true
 
+    - name: Get Workspace ID
+      run: |
+        WORKSPACE_ID=$(curl -s \
+          --header "Authorization: Bearer ${{ secrets.TF_API_TOKEN }}" \
+          --header "Content-Type: application/vnd.api+json" \
+          https://app.terraform.io/api/v2/organizations/${{ env.TF_CLOUD_ORGANIZATION }}/workspaces/${{ env.TF_WORKSPACE }} \
+          | jq -r '.data.id')
+        echo "WORKSPACE_ID=$WORKSPACE_ID" >> $GITHUB_ENV
+    
     - name: Trigger Terraform Cloud Run
       if: github.ref == 'refs/heads/master' && github.event_name == 'workflow_dispatch'
       run: |
@@ -55,10 +64,10 @@ jobs:
                 "workspace": {
                   "data": {
                     "type": "workspaces",
-                    "id": "${{ env.TF_WORKSPACE }}"
+                    "id": "'"$WORKSPACE_ID"'"
                   }
                 }
               }
             }
           }' \
-          https://app.terraform.io/api/v2/organizations/${{ env.TF_CLOUD_ORGANIZATION }}/workspaces/${{ env.TF_WORKSPACE }}/runs
+          https://app.terraform.io/api/v2/runs

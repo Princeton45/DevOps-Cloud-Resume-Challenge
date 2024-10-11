@@ -37,9 +37,21 @@ The workflow consists of a single job named 'Terraform' that performs the follow
    - Select the master branch
    - Click "Run workflow"
 
-   This will create a new run in Terraform Cloud. What happens next depends on your Terraform Cloud workspace settings:
-   - If "Auto apply" is enabled, Terraform Cloud will automatically apply the changes after a successful plan.
-   - If "Auto apply" is disabled, the run will stop after the plan phase, waiting for manual approval in the Terraform Cloud console before applying.
+   This will create a new run in Terraform Cloud. What the workflow does when manually triggered on the master branch is:
+
+   - It sends a request to Terraform Cloud to create a new run.
+   - This run in Terraform Cloud will include both a plan and an apply phase.
+
+   The actual apply in Terraform Cloud depends on your workspace settings:
+
+   - If the  workspace is set to "Auto apply", then the run will automatically apply the changes after the plan phase.
+
+   - If the workspace is not set to "Auto apply", then the run will stop after the plan phase, waiting for manual approval in the Terraform Cloud console before applying.
+
+   ![VCS](images/VCS.png)
+
+   
+
 
 ## Important Notes
 

@@ -64,3 +64,24 @@ The workflow uses the following environment variables:
 - `TF_CLOUD_ORGANIZATION`: The Terraform Cloud organization
 - `TF_API_TOKEN`: The Terraform Cloud API token (stored as a GitHub secret)
 - `TF_WORKSPACE`: The Terraform Cloud workspace name
+
+
+=================================================================================
+
+## S3 Workflow
+
+This project uses a GitHub Actions workflow for continuous deployment to AWS S3 and CloudFront.
+
+### Workflow Overview
+
+- **Trigger**: Pushes to the `master` branch that affect files in the `frontend_infrastructure/website_homepage/` directory.
+- **Environment**: Runs on Ubuntu latest.
+
+- When the local website file code is edited and pushed to the repository, it will trigger this workflow and automatically upload the changed code to S3 and invalidate the cache.
+
+### Steps:
+
+1. **Checkout**: Fetches the repository code.
+2. **AWS Credentials**: Configures AWS credentials for deployment.
+3. **S3 Deployment**: Syncs the website files to an S3 bucket.
+4. **CloudFront Invalidation**: Invalidates the CloudFront cache to ensure updates are immediately visible.

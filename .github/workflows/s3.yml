@@ -5,7 +5,7 @@ on:
     branches:
       - master
     paths: 
-      - 'website homepage/**'
+      - 'frontend_infrastructure/website homepage**'
 
 jobs:
     deploy:
@@ -23,7 +23,7 @@ jobs:
 
       - name: Deploy to S3
         run: |
-          aws s3 sync website homepage/ s3://princetonabdulsalam.cloud --delete
+          aws s3 sync 'frontend_infrastructure/website homepage' s3://princetonabdulsalam.cloud --delete
 
       - name: Invalidate CloudFront cache
         run: |

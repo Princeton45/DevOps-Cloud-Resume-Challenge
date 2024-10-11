@@ -38,6 +38,27 @@ jobs:
       run: terraform plan -no-color
       continue-on-error: true
 
-    - name: Terraform Apply
+    - name: Trigger Terraform Cloud Run
       if: github.ref == 'refs/heads/master' && github.event_name == 'workflow_dispatch'
-      run: terraform apply -auto-approve -input=false
+      run: |
+        curl -s -X POST \
+          --header "Authorization: Bearer ${{ secrets.TF_API_TOKEN }}" \
+          --header "Content-Type: application/vnd.api+json" \
+          --data '{
+            "data": {
+              "attributes": {
+                "is-destroy":false,
+                "message": "Triggered by GitHub Actions"
+              },
+              "type":"runs",
+              "relationships": {
+                "workspace": {
+                  "data": {
+                    "type": "workspaces",
+                    "id": "${{ env.TF_WORKSPACE }}"
+                  }
+                }
+              }
+            }
+          }' \
+          https://app.terraform.io/api/v2/organizations/${{ env.TF_CLOUD_ORGANIZATION }}/workspaces/${{ env.TF_WORKSPACE }}/runs

@@ -1,4 +1,4 @@
-name: Terraform CI/CD
+name: S3 CI/CD
 
 on:
   push:

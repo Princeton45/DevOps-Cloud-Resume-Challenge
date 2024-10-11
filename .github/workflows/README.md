@@ -12,34 +12,45 @@ The workflow consists of a single job named 'Terraform' that performs the follow
 4. Initialize Terraform
 5. Validate Terraform configuration
 6. Plan Terraform changes
-7. Apply Terraform changes (conditional)
+7. Trigger a new run in Terraform Cloud (conditional)
 
 ## Key Features
 
 - Runs automatically on pushes to the master branch and when manually triggered.
 - Performs Terraform init, format check, validate, and plan on every run.
-- The apply step only runs when manually triggered on the master branch.
-- Integrates with Terraform Cloud for state management and execution.
+- Triggers a new run in Terraform Cloud only when manually triggered on the master branch.
+- Fully integrates with Terraform Cloud's VCS-driven workflow.
 
 ## Using the Workflow
 
-1. **Automatic Plan Generation**: 
+1. **Automatic Checks**: 
    Every push to the `master` branch automatically triggers the workflow, running Terraform init, validate, and plan.
 
 2. **Reviewing Plans**:
-   You can review the output of the plan in the Terraform Cloud console.
+   You can review the output of the plan in the GitHub Actions logs and the Terraform Cloud console.
 
-3. **Applying Changes**:
-   To apply changes:
+3. **Triggering Terraform Cloud Run**:
+   To trigger a new run in Terraform Cloud:
    - Go to the Actions tab in the GitHub repository
    - Select the "Terraform CI/CD" workflow
    - Click "Run workflow"
    - Select the master branch
    - Click "Run workflow"
 
-   The apply step will only run when manually triggered on the master branch.
+   This will create a new run in Terraform Cloud. What happens next depends on your Terraform Cloud workspace settings:
+   - If "Auto apply" is enabled, Terraform Cloud will automatically apply the changes after a successful plan.
+   - If "Auto apply" is disabled, the run will stop after the plan phase, waiting for manual approval in the Terraform Cloud console before applying.
 
 ## Important Notes
 
 - This workflow is designed to work with Terraform Cloud's VCS-driven workflow.
-- Actual execution of Terraform commands happens on Terraform Cloud, not in the GitHub Actions environment.
+- Actual execution of Terraform commands (including apply) happens on Terraform Cloud, not in the GitHub Actions environment.
+- The workflow does not directly apply changes; it triggers a run in Terraform Cloud when manually activated.
+
+## Environment Variables
+
+The workflow uses the following environment variables:
+
+- `TF_CLOUD_ORGANIZATION`: The Terraform Cloud organization
+- `TF_API_TOKEN`: The Terraform Cloud API token (stored as a GitHub secret)
+- `TF_WORKSPACE`: The Terraform Cloud workspace name

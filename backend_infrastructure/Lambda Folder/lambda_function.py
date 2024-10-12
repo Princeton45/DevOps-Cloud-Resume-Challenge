@@ -3,7 +3,7 @@ import boto3
 from decimal import Decimal
 
 # Helper class to convert Decimal to int/float for JSON serialization
-#test comment
+#removed test comment
 class DecimalEncoder(json.JSONEncoder):
     def default(self, obj):
         if isinstance(obj, Decimal):

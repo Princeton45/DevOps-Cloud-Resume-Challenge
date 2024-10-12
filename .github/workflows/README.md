@@ -88,9 +88,9 @@ This project uses a GitHub Actions workflow for continuous deployment to AWS S3 
 
 
 ### Using Git to push to github:
-git add . <-- stages the files
-git commit -m "<commit_name>"
-git push (make sure to set the origin for the repo and set-upstream)
+1. git add . <-- stages the files
+2. git commit -m "<commit_name>"
+3. git push (make sure to set the origin for the repo and set-upstream)
 
 
 

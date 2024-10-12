@@ -85,3 +85,12 @@ This project uses a GitHub Actions workflow for continuous deployment to AWS S3 
 2. **AWS Credentials**: Configures AWS credentials for deployment.
 3. **S3 Deployment**: Syncs the website files to an S3 bucket.
 4. **CloudFront Invalidation**: Invalidates the CloudFront cache to ensure updates are immediately visible.
+
+
+### Using Git to push to github:
+git add . <-- stages the files
+git commit -m "<commit_name>"
+git push (make sure to set the origin for the repo and set-upstream)
+
+
+

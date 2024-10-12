@@ -2,6 +2,7 @@ import json
 import pytest
 from moto import mock_aws
 import boto3
+from unittest.mock import patch
 from lambda_function import lambda_handler, get_dynamodb_table
 import warnings
 
@@ -52,15 +53,13 @@ def test_lambda_handler_subsequent_visit(dynamodb_table):
     body = json.loads(response['body'])
     assert body['count'] == 2
 
-def test_lambda_handler_error(mocker):
-    mocker.patch('lambda_function.get_dynamodb_table', side_effect=Exception('Mocked error'))
-    
-    response = lambda_handler({}, {})
+def test_lambda_handler_error():
+    with patch('lambda_function.get_dynamodb_table', side_effect=Exception('Mocked error')):
+        response = lambda_handler({}, {})
     
     assert response['statusCode'] == 500
     assert 'error' in json.loads(response['body'])
-
-
+    
 # We use mock_aws from moto to mock DynamoDB, allowing us to test without accessing real AWS resources.
 
 '''The mock_aws decorator from the moto library creates a mock AWS 

@@ -94,3 +94,7 @@ This project uses a GitHub Actions workflow for continuous deployment to AWS S3 
 
 
 
+
+For Lambda CI/CD
+
+In the workflow file, the deploy job has a needs: test line. This means that the deploy job will only run if the test job completes successfully. If any step in the test job fails (including the pytest step), the deploy job won't run at all.

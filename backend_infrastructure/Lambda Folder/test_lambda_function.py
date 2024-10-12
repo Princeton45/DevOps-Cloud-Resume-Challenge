@@ -42,8 +42,13 @@ def test_lambda_handler_subsequent_visit(dynamodb_table):
     assert body['count'] == 2
 
 def test_lambda_handler_error(mocker):
-    # Mock DynamoDB to raise an exception
-    mocker.patch('boto3.resource', side_effect=Exception('Mocked error'))
+    # Mock boto3.resource to raise an exception
+    mock_resource = mocker.patch('boto3.resource')
+    mock_resource.side_effect = Exception('Mocked error')
+    
+    # Mock the global 'dynamodb' and 'table' variables in lambda_function
+    mocker.patch('lambda_function.dynamodb', side_effect=Exception('Mocked error'))
+    mocker.patch('lambda_function.table', side_effect=Exception('Mocked error'))
     
     response = lambda_handler({}, {})
     
@@ -66,3 +71,12 @@ environment for testing purposes. In this case, it's specifically mocking the Dy
 # test_lambda_handler_error checks error handling by forcing an exception.
 
 # To run the test you can do run "pytest test_lambda_function.py" in the terminal.
+
+'''the lambda_function.py and test_lambda_function.py files are connected. The test file is designed to test the functionality of the lambda_handler function defined in the lambda_function.py file. Here's how they are connected:
+
+In the test file, there's an import statement:
+
+"from lambda_function import lambda_handler"
+
+This imports the lambda_handler function from lambda_function.py, allowing the test file to call and test this function.
+'''

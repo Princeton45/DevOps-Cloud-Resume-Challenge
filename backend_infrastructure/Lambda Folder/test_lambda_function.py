@@ -59,9 +59,9 @@ def test_lambda_handler_error():
     
     assert response['statusCode'] == 500
     assert 'error' in json.loads(response['body'])
-    
-# We use mock_aws from moto to mock DynamoDB, allowing us to test without accessing real AWS resources.
 
+# We use mock_aws from moto to mock DynamoDB, allowing us to test without accessing real AWS resources.
+#test
 '''The mock_aws decorator from the moto library creates a mock AWS 
 environment for testing purposes. In this case, it's specifically mocking the DynamoDB service.
 '''

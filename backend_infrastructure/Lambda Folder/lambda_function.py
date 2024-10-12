@@ -9,11 +9,13 @@ class DecimalEncoder(json.JSONEncoder):
             return int(obj) if obj % 1 == 0 else float(obj)
         return super(DecimalEncoder, self).default(obj)
 
-dynamodb = boto3.resource('dynamodb')
-table = dynamodb.Table('VisitorCounter')
+def get_dynamodb_table():
+    dynamodb = boto3.resource('dynamodb')
+    return dynamodb.Table('VisitorCounter')
 
 def lambda_handler(event, context):
     try:
+        table = get_dynamodb_table()
         response = table.update_item(
             Key={'id': 'visitors'},
             UpdateExpression='SET #count = if_not_exists(#count, :start) + :inc',

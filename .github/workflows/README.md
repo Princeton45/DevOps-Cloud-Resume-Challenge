@@ -86,15 +86,32 @@ This project uses a GitHub Actions workflow for continuous deployment to AWS S3 
 3. **S3 Deployment**: Syncs the website files to an S3 bucket.
 4. **CloudFront Invalidation**: Invalidates the CloudFront cache to ensure updates are immediately visible.
 
+===============================================================================
+
+# Lambda CI/CD Workflow
+
+This workflow automates testing and deployment of the AWS Lambda function.
+
+## Trigger
+- Activates on pushes that modify `backend_infrastructure/Lambda Folder/lambda_function.py`
+
+## Jobs
+
+### 1. Test
+- Runs on Ubuntu
+- Sets up Python 3.9
+- Installs dependencies
+- Executes pytest
+
+### 2. Deploy
+- Configures AWS credentials
+- Zips and updates Lambda function code
+
+**Note:** The deploy job has a `needs: test` line. This means that the deploy job will only run if the test job completes successfully. If any step in the test job fails (including the pytest step), the deploy job won't run at all.
+
+====================================================================
 
 ### Using Git to push to github:
 1. git add . <-- stages the files
 2. git commit -m "<commit_name>"
 3. git push (make sure to set the origin for the repo and set-upstream)
-
-
-
-
-For Lambda CI/CD
-
-In the workflow file, the deploy job has a needs: test line. This means that the deploy job will only run if the test job completes successfully. If any step in the test job fails (including the pytest step), the deploy job won't run at all.

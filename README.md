@@ -35,6 +35,8 @@ The project combines various AWS services to create a serverless, highly availab
    - The count is returned through API Gateway to the client-side JavaScript.
    - JavaScript updates the visitor count displayed on the webpage.
 
+   ![Flow](https://github.com/Princeton45/DevOps-Cloud-Resume-Challenge/blob/master/images/image%20(1).png)
+
 4. **Infrastructure as Code**:
    - Terraform is used to define and manage all AWS resources, ensuring reproducibility and version control of the infrastructure.
 

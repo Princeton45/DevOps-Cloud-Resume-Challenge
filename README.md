@@ -54,7 +54,7 @@ The project combines various AWS services to create a serverless, highly availab
 
 ## CI/CD Workflows
 1. **Terraform Cloud Workflow**: Automates Terraform operations
-   - Runs on pushes to master and manual triggers
+   - Runs on pushes to the master github branch and manual triggers
    - Performs Terraform init, validate, and plan
    - Integrates with Terraform Cloud for apply operations
 

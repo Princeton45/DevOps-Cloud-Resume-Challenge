@@ -14,7 +14,8 @@ The project combines various AWS services to create a serverless, highly availab
    - JavaScript: Handles the visitor counter functionality on the client side.
    - S3: Hosts the static website files (HTML, CSS, JS).
    - CloudFront: Provides content delivery and HTTPS security for the S3-hosted website.
-   - Route 53: Manages the custom domain name, pointing it to the CloudFront distribution.
+   - Custom Domain: Purchased from Porkbun, with DNS records configured to point to the CloudFront distribution.
+
 
 2. **Back-end**:
    - API Gateway: Exposes a RESTful API endpoint that the front-end can call.
@@ -38,7 +39,6 @@ The project combines various AWS services to create a serverless, highly availab
 ## Key Components and Services Used
 - Amazon S3 for static website hosting
 - Amazon CloudFront for content delivery and HTTPS
-- Amazon Route 53 for DNS management
 - Amazon DynamoDB for the visitor counter database
 - AWS Lambda for serverless backend logic
 - Amazon API Gateway for RESTful API

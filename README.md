@@ -68,6 +68,8 @@ The project combines various AWS services to create a serverless, highly availab
    - Runs Python tests
    - Deploys updated Lambda function if tests pass
 
+   Please visit [Github Workflows README](https://github.com/Princeton45/DevOps-Cloud-Resume-Challenge/tree/master/.github/workflows) for a more in depth overview of the workflows and their code.
+
 ## Skills Demonstrated
 - Cloud Architecture with AWS
 - Infrastructure as Code with Terraform

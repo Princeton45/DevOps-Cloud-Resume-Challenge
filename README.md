@@ -6,6 +6,11 @@ https://princetonabdulsalam.cloud/
 ## Project Overview
 This project is my implementation of the Cloud Resume Challenge using AWS services. It demonstrates a full-stack cloud application, showcasing skills in front-end development, back-end serverless architecture, infrastructure as code, and CI/CD practices.
 
+For more information on the original challenge see:
+https://cloudresumechallenge.dev/docs/the-challenge/aws/
+
+For more information on the Terraform extension to the original challenge see: https://cloudresumechallenge.dev/docs/extensions/terraform-getting-started/.
+
 ## How It Works
 The project combines various AWS services to create a serverless, highly available web application. Here's how the components work together:
 

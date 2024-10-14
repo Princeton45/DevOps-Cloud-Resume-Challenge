@@ -2,7 +2,7 @@
 async function updateVisitorCount() {
     try {
         // Make a request to your API Gateway endpoint
-        const response = await fetch('https://pq6fgc84k6.execute-api.us-east-1.amazonaws.com/count', {
+        const response = await fetch('https://pq6fgc84k6.execute-api.us-east-1.amazonaws.com/VisitorCounterFunction', {
             method: 'POST'
         });
         const data = await response.json();

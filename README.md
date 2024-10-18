@@ -23,7 +23,7 @@ The project combines various AWS services to create a serverless, highly availab
 
 
 2. **Back-end**:
-   - API Gateway: Exposes a RESTful API endpoint that the front-end can call.
+   - API Gateway: Exposes a HTTP API endpoint that the front-end can call.
    - Lambda (Python): Contains the logic to update and retrieve the visitor count.
    - DynamoDB: Stores the visitor count data.
 
@@ -48,7 +48,7 @@ The project combines various AWS services to create a serverless, highly availab
 - Amazon CloudFront for content delivery and HTTPS
 - Amazon DynamoDB for the visitor counter database
 - AWS Lambda for serverless backend logic
-- Amazon API Gateway for RESTful API
+- Amazon API Gateway for HTTP API
 - Terraform for Infrastructure as Code
 - GitHub Actions for CI/CD pipelines
 

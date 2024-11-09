@@ -81,4 +81,13 @@ The project combines various AWS services to create a serverless, highly availab
 - Version control with Git
 - HTTPS and DNS management
 
+## Troubleshooting along the way
 
+### 403 Error
+![Error](https://github.com/Princeton45/DevOps-Cloud-Resume-Challenge/blob/master/images/403_error.png)
+
+I could go to the cloudfront distribution domain name for my setup fine but when I tried going through my princetonabdulsalam.cloud domain name I got the error above.
+
+To fix it, I had to add my princetonabdulsalam.cloud as an alternate domain alias in the cloud front distribution.
+
+![alt_domain](https://github.com/Princeton45/DevOps-Cloud-Resume-Challenge/blob/master/images/alt_domain.png)

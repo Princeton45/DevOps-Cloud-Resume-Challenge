@@ -96,6 +96,6 @@ To fix it, I had to add my princetonabdulsalam.cloud as an alternate domain alia
 
 ![api_gateway_error](https://github.com/Princeton45/DevOps-Cloud-Resume-Challenge/blob/master/images/api_gateway_error.png)
 
-The API Gateway started throwing a timeout log error ( enabled logging for the API then created a log group in cloudwatch using the APIs ARN or lambdas ARN to then log all the API logs to the log group) in cloudwatch. Basically, the default timeout for the lambda function was 3 seconds so if a response was not heard from the lambda function back to the API within 3 seconds, it would throw an error and not load the visitor counter on my website.
+The API Gateway started throwing a timeout log error ( enabled logging for the API then created a log group in cloudwatch using the APIs ARN to then log all the API logs to the log group) in cloudwatch. Basically, the default timeout for the lambda function was 3 seconds so if a response was not heard from the lambda function back to the API within 3 seconds, it would throw an error and not load the visitor counter on my website.
 
 I changed the max timeout on the function to 15 minutes and now the issue doesn’t happen.

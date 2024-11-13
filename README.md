@@ -1,7 +1,7 @@
 # DevOps Cloud Resume Challenge - AWS Implementation
 
 ## Visit My Cloud Resume Website
-https://princetonabdulsalam.cloud/
+https://princetonabdulsalam.cloud/resume-home/
 
 ## Project Overview
 This project is my implementation of the Cloud Resume Challenge using AWS services. It demonstrates a full-stack cloud application, showcasing skills in front-end development, back-end serverless architecture, infrastructure as code, and CI/CD practices.

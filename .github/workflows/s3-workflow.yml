@@ -23,7 +23,7 @@ jobs:
 
       - name: Deploy to S3
         run: |
-          aws s3 sync 'frontend_infrastructure/website_homepage' s3://princetonabdulsalam.cloud --delete
+          aws s3 sync 'frontend_infrastructure/website_homepage' s3://princetonabdulsalam.cloud/resume-home/ --delete
 
       - name: Invalidate CloudFront cache
         run: |

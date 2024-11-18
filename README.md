@@ -105,6 +105,15 @@ The project combines various AWS services to create a serverless, highly availab
 
 ![lambda](https://github.com/Princeton45/DevOps-Cloud-Resume-Challenge/blob/master/images/lambda.png)
 
+## AWS DynamoDB Database
+
+![dynamodb](https://github.com/Princeton45/DevOps-Cloud-Resume-Challenge/blob/master/images/dynamodb.png)
+
+## Lambda CI/CD Pipeline
+- This workflow automates testing and deployment of the AWS Lambda Function.
+- Activates on pushes that modify `backend_infrastructure/Lambda Folder/lambda_function.py`
+[READ MORE HERE](https://github.com/Princeton45/DevOps-Cloud-Resume-Challenge/tree/master/.github/workflows)
+![lambda_cicd](https://github.com/Princeton45/DevOps-Cloud-Resume-Challenge/blob/master/images/lambda_cicd.png)
 
 
 

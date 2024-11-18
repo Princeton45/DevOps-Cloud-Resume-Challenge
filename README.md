@@ -116,6 +116,21 @@ The project combines various AWS services to create a serverless, highly availab
 [READ MORE HERE](https://github.com/Princeton45/DevOps-Cloud-Resume-Challenge/tree/master/.github/workflows)
 ![lambda_cicd](https://github.com/Princeton45/DevOps-Cloud-Resume-Challenge/blob/master/images/lambda_cicd.png)
 
+## S3 CI/CD Pipeline
+- This workflow handles continuous deployment to AWS S3 and CloudFront.
+   - When the local website file code is edited and pushed to the repository, it will trigger this workflow and automatically upload the changed code to S3 and invalidate the cache.
+
+[READ MORE HERE](https://github.com/Princeton45/DevOps-Cloud-Resume-Challenge/tree/master/.github/workflows)
+![s3_cicd](https://github.com/Princeton45/DevOps-Cloud-Resume-Challenge/blob/master/images/s3_cicd.png)
+
+## Terraform CI/CD Pipeline
+- This workflow is triggered when a push is made to the master branch from a local development environment, where Terraform configuration files (.tf) are written and committed, initiating the GitHub Actions workflow that validates these configurations by performing format checks, initialization, validation, and planning steps along the way.  A Terraform Apply is only ran when manually triggering the workflow through the GitHub Actions tab.
+   - Best practice is to review your terraform plan first before applying it to ensure the proposed changes align with your intended infrastructure modifications and to prevent any unintended changes or deletions.
+
+   
+[READ MORE HERE](https://github.com/Princeton45/DevOps-Cloud-Resume-Challenge/tree/master/.github/workflows)
+![terraform_cicd](https://github.com/Princeton45/DevOps-Cloud-Resume-Challenge/blob/master/images/terraform_cicd.png)
+
 
 
 ## Troubleshooting along the way

@@ -89,6 +89,9 @@ The project combines various AWS services to create a serverless, highly availab
 - The main.tf terraform file is calling the backend_infrastructure and frontend_infrastructure sub-modules that contain the actual terraform infrastructure code.
 ![terraform](https://github.com/Princeton45/DevOps-Cloud-Resume-Challenge/blob/master/images/terraform_image.png)
 
+## AWS S3 Bucket configuration hosting my website files
+
+![s3_bucket](https://github.com/Princeton45/DevOps-Cloud-Resume-Challenge/blob/master/images/s3bucket.png)
 
 ## Troubleshooting along the way
 

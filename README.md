@@ -93,6 +93,21 @@ The project combines various AWS services to create a serverless, highly availab
 
 ![s3_bucket](https://github.com/Princeton45/DevOps-Cloud-Resume-Challenge/blob/master/images/s3bucket.png)
 
+## AWS CloudFront Distribution
+
+![cloudfront](https://github.com/Princeton45/DevOps-Cloud-Resume-Challenge/blob/master/images/cloudfront.png)
+
+## AWS API Gateway
+
+![api_gateway](https://github.com/Princeton45/DevOps-Cloud-Resume-Challenge/blob/master/images/api_gateway.png)
+
+## AWS Lambda Function
+
+![lambda](https://github.com/Princeton45/DevOps-Cloud-Resume-Challenge/blob/master/images/lambda.png)
+
+
+
+
 ## Troubleshooting along the way
 
 ### 403 Error

@@ -13,7 +13,7 @@ class DecimalEncoder(json.JSONEncoder):
 def get_dynamodb_table():
     dynamodb = boto3.resource('dynamodb')
     return dynamodb.Table('VisitorCounter')
-
+lkklkl
 def lambda_handler(event, context):
     try:
         table = get_dynamodb_table()

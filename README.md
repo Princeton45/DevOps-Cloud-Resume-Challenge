@@ -98,6 +98,7 @@ The project combines various AWS services to create a serverless, highly availab
 - CORS-enabled for web browser access
 - Includes error handling
 - Properly handles DynamoDB Decimal type conversion
+
 [FULL CODE W/ COMMENTS](https://github.com/Princeton45/DevOps-Cloud-Resume-Challenge/blob/master/backend_infrastructure/Lambda%20Folder/lambda_function.py)
 
 ## Lambda Function Tests.

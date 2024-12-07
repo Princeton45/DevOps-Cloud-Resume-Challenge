@@ -91,7 +91,7 @@ The project combines various AWS services to create a serverless, highly availab
 
 ## AWS S3 Bucket configuration hosting my website files
 
-![s3_bucket](https://github.com/Princeton45/DevOps-Cloud-Resume-Challenge/blob/master/images/s3bucket.png)
+![s3_bucket](https://github.com/Princeton45/DevOps-Cloud-Resume-Challenge/blob/master/images/s3bucket1.png)
 
 ## AWS CloudFront Distribution
 

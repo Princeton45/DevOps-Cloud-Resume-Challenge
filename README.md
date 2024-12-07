@@ -99,7 +99,7 @@ The project combines various AWS services to create a serverless, highly availab
 
 ## AWS API Gateway
 
-![api_gateway](https://github.com/Princeton45/DevOps-Cloud-Resume-Challenge/blob/master/images/api_gateway.png)
+![api_gateway](https://github.com/Princeton45/DevOps-Cloud-Resume-Challenge/blob/master/images/api_gateway1.png)
 
 ## AWS Lambda Function
 

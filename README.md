@@ -89,6 +89,29 @@ The project combines various AWS services to create a serverless, highly availab
 - The main.tf terraform file is calling the backend_infrastructure and frontend_infrastructure sub-modules that contain the actual terraform infrastructure code.
 ![terraform](https://github.com/Princeton45/DevOps-Cloud-Resume-Challenge/blob/master/images/terraform_image.png)
 
+## Lambda Function.
+
+![lambda_function](https://github.com/Princeton45/DevOps-Cloud-Resume-Challenge/blob/master/images/lambda_function.png)
+
+- Increments visitor count in DynamoDB
+- Handles new counter initialization
+- CORS-enabled for web browser access
+- Includes error handling
+- Properly handles DynamoDB Decimal type conversion
+[FULL CODE W/ COMMENTS](https://github.com/Princeton45/DevOps-Cloud-Resume-Challenge/blob/master/backend_infrastructure/Lambda%20Folder/lambda_function.py)
+
+## Lambda Function Tests.
+
+![lambda_function_tests2](https://github.com/Princeton45/DevOps-Cloud-Resume-Challenge/blob/master/images/lambda_function_tests2.png)
+
+- Test suite for AWS Lambda visitor counter using moto library to mock DynamoDB services
+- Contains three main test cases: first visit (counter starts at 1), subsequent visits (counter increments), and error handling
+- Tests can be run locally using pytest without requiring actual AWS resources
+![lambda_function_tests](https://github.com/Princeton45/DevOps-Cloud-Resume-Challenge/blob/master/images/lambda_function_tests.png)
+
+[FULL CODE W/ COMMENTS](https://github.com/Princeton45/DevOps-Cloud-Resume-Challenge/blob/master/backend_infrastructure/Lambda%20Folder/test_lambda_function.py)
+
+
 ## AWS S3 Bucket configuration hosting my website files
 
 ![s3_bucket](https://github.com/Princeton45/DevOps-Cloud-Resume-Challenge/blob/master/images/s3bucket1.png)

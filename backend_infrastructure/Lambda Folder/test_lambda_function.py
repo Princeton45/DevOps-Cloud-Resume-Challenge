@@ -76,11 +76,14 @@ environment for testing purposes. In this case, it's specifically mocking the Dy
 
 # To run the test you can do run "pytest test_lambda_function.py" in the terminal.
 
-'''the lambda_function.py and test_lambda_function.py files are connected. The test file is designed to test the functionality of the lambda_handler function defined in the lambda_function.py file. Here's how they are connected:
+'''the lambda_function.py and test_lambda_function.py files are connected. 
+The test file is designed to test the functionality of the lambda_handler 
+function defined in the lambda_function.py file. Here's how they are connected:
 
 In the test file, there's an import statement:
 
 "from lambda_function import lambda_handler"
 
-This imports the lambda_handler function from lambda_function.py, allowing the test file to call and test this function.
+This imports the lambda_handler function from lambda_function.py, allowing the test file to call and 
+test this function.
 '''
